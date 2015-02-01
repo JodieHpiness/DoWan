@@ -6,13 +6,17 @@
 	<style>
 		
 		#wrap { display: block; }
-		.lotteryPanel { width: 800px; border-collapse: collapse; box-shadow: 0px 0px 5px #333;}
+		.lotteryPanel { width: 800px; border-collapse: collapse; box-shadow: 0px 0px 5px #333; margin: 100px auto;}
 		.lotteryPanel tr { }
 		.lotteryPanel tr td { width: 198px; height: 98px; background: #f1f1f1; 
 							  border-top: 2px solid #fff; border-left: 1px solid #f1f1f1; 
 							  border-right: 1px solid #f1f1f1; border-bottom: 7px solid #e1e1e1;
 							  text-align: center; color: #888;
 							  font: bold 32px/34px arial;
+							 /* transition: background 0.2s;
+							  -moz-transition: background 0.2s; 
+							  -webkit-transition: background 0.2s; 
+							  -o-transition: background 0.2s; */
 							}
 		.lotteryPanel tr td.even {
 			background: #d1d1d1; border-left: 1px solid #d1d1d1; border-right: 1px solid #d1d1d1;
@@ -75,7 +79,7 @@
 			second = second || 1000;
 			var timeID = setTimeout(function(){
 				second -= 150;
-				second = second>0 ? second : 30;
+				second = second>0 ? second : 50;
 
 				$(".pick").removeClass("pick");
 				$("#pick"+count).addClass("pick");
