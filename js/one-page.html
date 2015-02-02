@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>one page</title>
+	<link rel="stylesheet" href="../lib/onepage-scroll.css">
+	<style>
+		.main { }
+		.section {  }
+		.section.blue { background: #3399ff; }
+		.section.org { background: #ff9933;}
+		.section.green { background: #00ff00; }
+		.section.white {background: #fff;}
+		.section.red {background: #ff0000;}
+		.section.yellow {background: #33ffff; }
+	</style>
+</head>
+<body>
+
+	<div class="main">
+		<div class="section blue">
+			
+		</div>
+		<div class="section org">
+			
+		</div>
+		<div class="section green">
+			
+		</div>
+		<div class="section white">
+			
+		</div>
+		<div class="section red">
+			
+		</div>
+		<div class="section yellow">
+			
+		</div>
+	</div>
+	
+	<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+	<script src="../lib/jquery.onepage-scroll.js"></script>
+	<script>
+		$(function(){
+
+			$(".main").onepage_scroll({
+				sectionContainer:".section",
+				easing: "ease",
+				animationTime:1000,
+				pagination: true,
+				beforeMove: function(index){
+
+				},
+				afterMove: function(index){
+
+				},
+				loop: false,
+				keyboard: true,
+				respoonsiveFallback: false,
+				direction:"vertical"
+			})
+
+		})
+	</script>
+</body>
+</html>

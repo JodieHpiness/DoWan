@@ -31,36 +31,6 @@
 			<li>One thing you can be sure of</li>
 			<li>I'll never ask for more than your love</li>
 			<li>Nothing's gonna change my love for you</li>
-			<li>You oughta know by now how much I love you</li>
-			<li>The world may change my whole life through</li>
-			<li>But nothing's gonna change my love for you</li>
-			<li>If the road ahead[2] is not so easy,</li>
-			<li>Our love will lead the way for us</li>
-			<li>Just like a guiding star</li>
-			<li>I'll be there for you if you should need me</li>
-			<li>You don't have to change a thing</li>
-			<li>I love you just the way you are</li>
-			<li>So come with me and share the view</li>
-			<li>I'll help you see forever too</li>
-			<li>Hold me now</li>
-			<li>Touch me now</li>
-			<li>I don't want to live without you</li>
-			<li>Nothing's gonna change my love for you</li>
-			<li>You oughta know by now how much I love you</li>
-			<li>One thing you can be sure of</li>
-			<li>I'll never ask for more than your love</li>
-			<li>Nothing's gonna change my love for you</li>
-			<li>You oughta know by now how much I love you</li>
-			<li>The world may change my whole life through</li>
-			<li>But nothing's gonna change my love for you</li>
-			<li>Nothing's gonna change my love for you</li>
-			<li>You oughta know by now how much I love you</li>
-			<li>One thing you can be sure of</li>
-			<li>I'll never ask for more than your love</li>
-			<li>Nothing's gonna change my love for you</li>
-			<li>You oughta know by now how much I love you</li>
-			<li>The world may change my whole life through</li>
-			<li>But nothing's gonna change my love for you</li>
 			<li>=============================</li>
 		</ul>
 	</div>
@@ -73,9 +43,7 @@
 			timeID = setInterval(function(){
 				wTop = wTop - 1 ;
 				$("#list").animate({"top":wTop}, 30, function(){
-					if($("#list li").length/2*30==(0-wTop)){
-						$("#list").css({"top":0});
-					}
+					console.log(wTop)
 				});
 			}, 30);
 		}
