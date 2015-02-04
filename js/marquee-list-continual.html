@@ -31,6 +31,9 @@
 			<li>One thing you can be sure of</li>
 			<li>I'll never ask for more than your love</li>
 			<li>Nothing's gonna change my love for you</li>
+			<li>Nothing's gonna change my love for you</li>
+			<li>Nothing's gonna change my love for you</li>
+			<li>Nothing's gonna change my love for you</li>
 			<li>=============================</li>
 		</ul>
 	</div>
@@ -43,7 +46,10 @@
 			timeID = setInterval(function(){
 				wTop = wTop - 1 ;
 				$("#list").animate({"top":wTop}, 30, function(){
-					console.log(wTop)
+					if(wTop==-600){
+						wTop=0;
+						$("#list").css("top", wTop);
+					}
 				});
 			}, 30);
 		}

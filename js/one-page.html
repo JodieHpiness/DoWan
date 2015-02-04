@@ -4,9 +4,10 @@
 	<meta charset="UTF-8">
 	<title>one page</title>
 	<link rel="stylesheet" href="../lib/onepage-scroll.css">
+	
 	<style>
 		.main { }
-		.section {  }
+		.section { width: 100%; height: 800px; position: relative;}
 		.section.blue { background: #3399ff; }
 		.section.org { background: #ff9933;}
 		.section.green { background: #00ff00; }
@@ -41,25 +42,32 @@
 	<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
 	<script src="../lib/jquery.onepage-scroll.js"></script>
 	<script>
+
+		var isIE = function(ver){
+			var b = document.createElement("b");
+			b.innerHTML = '<!--[if IE '+ver+']><i></i><![endif]-->';
+			return b.getElementsByTagName('i').length === 1;
+		}
 		$(function(){
-
-			$(".main").onepage_scroll({
-				sectionContainer:".section",
-				easing: "ease",
-				animationTime:1000,
-				pagination: true,
-				beforeMove: function(index){
-
-				},
-				afterMove: function(index){
-
-				},
-				loop: false,
-				keyboard: true,
-				respoonsiveFallback: false,
-				direction:"vertical"
-			})
-
+			console.log(!(isIE(9) || isIE(8) || isIE(7)))
+			if(!(isIE(9) || isIE(8) || isIE(7))){
+				$(".main").onepage_scroll({
+					sectionContainer:".section",
+					easing: "ease",
+					animationTime:1000,
+					pagination: true,
+					beforeMove: function(index){
+					},
+					afterMove: function(index){
+					},
+					loop: false,
+					keyboard: true,
+					respoonsiveFallback: false,
+					direction:"vertical"
+				})
+			} else {
+				$("body").removeAttr("style").css("overflow","scroll");
+			}
 		})
 	</script>
 </body>
