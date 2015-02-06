@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Cloud move</title>
+	<style>
+		body {
+			background: #3399ff;
+		}
+		@keyframes round{
+			0%   { left: 100px;}
+			50%  { left: 500px;}
+			100% { left: 200px;}
+		}
+		@-moz-keyframes round {
+			0%   { left: 100px;}
+			50%  { left: 500px;}
+			100% { left: 200px;}
+		}
+
+		@-webkit-keyframes round {
+			0%   { left: 100px;}
+			50%  { left: 500px;}
+			100% { left: 200px;}
+		}
+		@-o-keyframes round {
+			0%   { left: 100px;}
+			50%  { left: 500px;}
+			100% { left: 200px;}
+		}
+		.cloud {
+			width: 255px;
+			height: 137px;
+			background: url(../img/cloud.png) no-repeat;
+			position: relative;
+			top: 100px;
+			left: 100px;
+			animation: round 5s ease 2s infinite alternate;
+			-moz-animation: round 5s ease 2s infinite alternate;
+			-webkit-animation: round 5s ease 2s infinite alternate;
+			-o-animation: round 5s ease 2s infinite alternate;
+		}
+	</style>
+</head>
+<body>
+	<div class="cloud"></div>
+</body>
+</html>

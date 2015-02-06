@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>marguee list （滚动文字，连续）</title>
+	<style>
+		* {padding:0; margin:0;}
+		body { font:12px/16px arial; }
+		#wrap { width: 400px; height: 450px; background: #fff; border: 1px solid #ccc; overflow: hidden; margin: 50px auto; position: relative;}
+		#wrap ul { list-style: none; background: #fff; position: relative;}
+		#wrap ul li { height: 29px; line-height: 29px; background: #fff; color:#333; text-indent: 20px; border-bottom: 1px solid #c0c0c0;}
+		#wrap ul li:even {background: #c0c0c0;}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<ul id="list">
+			<li>If I had to live my life without you near me</li>
+			<li>The days would all be empty</li>
+			<li>The nights would seem so long</li>
+			<li>With you I see forever oh so clearly</li>
+			<li>I might have been in love before</li>
+			<li>But it never felt this strong</li>
+			<li>Our dreams are young And we both know</li>
+			<li>they'll take us where we want to go</li>
+			<li>Hold me now</li>
+			<li>Touch me now</li>
+			<li>I don't want to live without you</li>
+			<li>Nothing's gonna change my love for you</li>
+			<li>You oughta know by now how much I love you</li>
+			<li>One thing you can be sure of</li>
+			<li>I'll never ask for more than your love</li>
+			<li>Nothing's gonna change my love for you</li>
+			<li>Nothing's gonna change my love for you</li>
+			<li>Nothing's gonna change my love for you</li>
+			<li>Nothing's gonna change my love for you</li>
+			<li>=============================</li>
+		</ul>
+	</div>
+
+	<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+	<script>
+		var timeID;
+		var wTop = 0;
+		var scroll = function(){
+			timeID = setInterval(function(){
+				wTop = wTop - 1 ;
+				$("#list").animate({"top":wTop}, 30, function(){
+					if(wTop==-600){
+						wTop=0;
+						$("#list").css("top", wTop);
+					}
+				});
+			}, 30);
+		}
+		var stop = function(){
+			clearInterval(timeID);
+		}
+
+		$(function(){
+			$("#list").append($("#list").html());
+
+			$("#list li").hover(function(){
+				stop();
+			}, function(){
+				scroll();
+			});
+			
+			scroll();
+		})
+	</script>
+
+</body>
+</html>
