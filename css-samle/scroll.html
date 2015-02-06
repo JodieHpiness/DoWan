@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Scroll</title>
+	<style>
+		* { margin: 0; padding: 0;}
+		#wrap { position: relative; font: 12px/16px arial; margin: 100px; background: #000;  
+				width: 200px; height: 320px; overflow: hidden;}
+		#wrap .list { position: relative; width: 200px; height: 320px; background: #c0c0c0; 
+					  list-style: none; }
+		#wrap li { height: 40px; line-height: 40px; background: #f4e18e;  }
+		#wrap .scroll-panel { width: 8px; height: 300px; position: absolute; right: 1px; top: 10px; z-index:10;
+			background: #812a2e; border-radius:8px; }
+		#wrap .scroll-panel .scroll { background: #ec4b37; height: 30px; width: 8px; border-radius: 8px;
+			position: absolute; z-index:11;top:0;  }
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<ul class="list">
+			<li>1 1 1 1 1 1 1 1 1</li>
+			<li>2 2 2 2 2 2 2 2 2</li>
+			<li>3 3 3 3 3 3 3 3 3</li>
+			<li>4 4 4 4 4 4 4 4 4</li>
+			<li>5 5 5 5 5 5 5 5 5</li>
+			<li>6 6 6 6 6 6 6 6 6</li>
+			<li>7 7 7 7 7 7 7 7 7</li>
+			<li>8 8 8 8 8 8 8 8 8</li>
+			<li>9 9 9 9 9 9 9 9 9</li>
+			<li>10 10 10 10 10 10 10 10 10</li>
+			<li>11 11 11 11 11 11 11 11 11</li>
+			<li>12 12 12 12 12 12 12 12 12</li>
+			<li>13 13 13 13 13 13 13 13 13</li>
+			<li>14 14 14 14 14 14 14 14 14</li>
+			<li>15 15 15 15 15 15 15 15 15</li>
+			<li>16 16 16 16 16 16 16 16 16</li>
+			<li>17 17 17 17 17 17 17 17 17</li>
+			<li>18 18 18 18 18 18 18 18 18</li>
+			<li>19 19 19 19 19 19 19 19 19</li>
+			<li>20 20 20 20 20 20 20 20 20</li>
+		</ul>
+		
+	</div>
+	<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+	<script>
+		$(function(){
+			if($(".list li").length>8){
+				$("#wrap").append('<div class="scroll-panel"><div class="scroll"></div></div>');
+				var top = $(".scroll").css("top");
+				var pageY = 0;
+				var height = 320/$(".list li").length/40*300;
+				var maxTop = 300 - height;
+				var listTop = 0;
+				var flag = false;
+				$(".scroll").css('height', height);
+
+				$(".scroll").bind("mousedown",function(e){
+					pageY = e.pageY;
+					flag = true;
+				})
+				$(".scroll").bind("mousemove", function(e){
+					if(flag){
+						offset = e.pageY - pageY;
+						pageY = e.pageY;
+						top = parseInt(top)+parseInt(offset);
+						top = top<0 ? 0 : top>maxTop ? maxTop : top;
+						$(".scroll").css({ top: top })
+						listTop = top/300*$(".list li").length*40;
+						$(".list").css({ top: -listTop })
+					}
+					
+				})
+				$(".scroll").bind("mouseup", function(e){
+					flag = false;
+				})
+			}
+		})
+	</script>
+</body>
+</html>
