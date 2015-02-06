@@ -7,7 +7,7 @@
 		* { margin: 0; padding: 0;}
 		#wrap { position: relative; font: 12px/16px arial; margin: 100px; background: #000;  
 				width: 200px; height: 320px; overflow: hidden;}
-		#wrap .list { position: relative; width: 200px; height: 320px; background: #c0c0c0; 
+		#wrap .list { position: relative;  background: #c0c0c0; 
 					  list-style: none; }
 		#wrap li { height: 40px; line-height: 40px; background: #f4e18e;  }
 		#wrap .scroll-panel { width: 8px; height: 300px; position: absolute; right: 1px; top: 10px; z-index:10;
@@ -73,6 +73,33 @@
 				})
 				$(".scroll").bind("mouseup", function(e){
 					flag = false;
+				})
+
+				var scrollFun = function(e){
+					e = e || window.event;
+					top = parseInt(top);
+					if(e.wheelDeltaY<0){
+						top+=10;
+					}else {
+						top-=10;
+					}
+					top = top<0 ? 0 : top>maxTop ? maxTop : top;
+					$(".scroll").css({ top: top })
+					listTop = top/300*$(".list li").length*40;
+					$(".list").css({ top: -listTop })
+				}
+
+				$("#wrap").bind("mouseenter", function(e){
+					pageY = e.pageY;
+					window.onmousewheel = document.onmousewheel = scrollFun;
+				})
+
+				var wrap = document.getElementById('wrap');
+				if(wrap.addEventListener){
+					wrap.addEventListener('DOMMouseScroll', scrollFun, false);
+				}
+
+				$("#wrap").bind("mouseout", function(e){
 				})
 			}
 		})
