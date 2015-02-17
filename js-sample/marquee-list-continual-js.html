@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>marguee list （滚动文字，连续）</title>
+	<style>
+		* {padding:0; margin:0;}
+		body { font:12px/16px arial; }
+		#wrap { width: 400px; height: 450px; background: #fff; border: 1px solid #ccc; overflow: hidden; margin: 50px auto; position: relative;}
+		#wrap ul { list-style: none; background: #fff; position: relative;}
+		#wrap ul li { height: 29px; line-height: 29px; background: #fff; color:#333; text-indent: 20px; border-bottom: 1px solid #c0c0c0;}
+		#wrap ul li:even {background: #c0c0c0;}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<ul id="list">
+			<li>If I had to live my life without you near me</li>
+			<li>The days would all be empty</li>
+			<li>The nights would seem so long</li>
+			<li>With you I see forever oh so clearly</li>
+			<li>I might have been in love before</li>
+			<li>But it never felt this strong</li>
+			<li>Our dreams are young And we both know</li>
+			<li>they'll take us where we want to go</li>
+			<li>Hold me now</li>
+			<li>Touch me now</li>
+			<li>I don't want to live without you</li>
+			<li>Nothing's gonna change my love for you</li>
+			<li>You oughta know by now how much I love you</li>
+			<li>One thing you can be sure of</li>
+			<li>I'll never ask for more than your love</li>
+			<li>Nothing's gonna change my love for you</li>
+			<li>Nothing's gonna change my love for you</li>
+			<li>Nothing's gonna change my love for you</li>
+			<li>Nothing's gonna change my love for you</li>
+			<li>=============================</li>
+		</ul>
+	</div>
+
+	<script>
+
+	window.onload = function(){
+		var list = document.getElementById("list");
+		var listli = list.getElementsByTagName("li");
+		list.innerHTML += list.innerHTML;
+		var timer = null;
+
+		var scroll = function(){
+			list.style.top = list.offsetTop -1 + "px";
+			if(list.offsetTop < -list.offsetHeight/2){
+				list.style.top = '0px';
+			}
+		}
+
+		timer = setInterval(scroll, 30);
+
+		for(var i = 0; i < listli.length; i++){
+			listli[i].onmouseover = function(){
+				clearInterval(timer);
+			}
+
+			listli[i].onmouseout = function(){
+				timer = setInterval(scroll, 30);
+			}
+		}
+
+		
+	
+	}
+		
+	</script>
+
+</body>
+</html>
