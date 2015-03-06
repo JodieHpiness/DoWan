@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Dom Operation</title>
+	<script src="http://g.alicdn.com/kissy/k/1.4.7/seed.js" data-config="{combine:true}"></script>
+</head>
+<body>
+	
+
+	<script>
+		KISSY.use('node', function(S, Node){
+			var div = new Node('<div>');
+
+
+			div.html('Hello Kissy !')
+				.css('color', 'red')
+				.append('<p> other content </p>')
+				.appendTo('body');
+
+
+		})
+
+	</script>
+</body>
+</html>

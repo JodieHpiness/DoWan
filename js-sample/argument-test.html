@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Argument Test</title>
+</head>
+<body>
+	
+
+	<script>
+		var a = 1;
+		var b = { name: 2 };
+		var c = { name: 3 };
+		var fn = function(a, b, c){
+			a = 4;
+			b.name = 5;
+			c.name = 6;
+			console.log(a +"-"+ b.name + "-"+ c.name);
+		}
+
+		fn(a, b, c);
+		fn(a, b.name, c.name);
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Add factory</title>
+	<script src="http://g.alicdn.com/kissy/k/1.4.7/seed.js" data-config="{combine:true}"></script>
+</head>
+<body>
+	
+
+	<script>
+
+		// KISSY.add('foo', function(S){
+		// 	return {
+		// 		name: 'bar'
+		// 	}
+		// })
+
+		// KISSY.use('foo', function(S, F){
+		// 	alert(F.name);
+		// })
+
+
+		// 定义对象
+		// KISSY.add('fooBar', {foo:'bar'});
+
+		// KISSY.use('fooBar', function(S, FB){
+		// 	alert(FB.foo);
+		// })
+
+		// 定义常量
+		// KISSY.add('foo', 'I am a template, My name is {{foo}} ');
+		// KISSY.use('foo', function(S, F){
+		// 	alert( F);
+		// })
+
+		// 模块依赖
+
+		KISSY.add('mod-a', {name: 'Module A'});
+		KISSY.add('mod-b', "This is module B");
+		KISSY.add('mod-c', function(S){
+			var c = {
+				init : function(str){
+					alert(str);
+				}
+			}
+			return c;
+		})
+
+		KISSY.add('mod-d', function(S, A, B, C){
+			var d = {
+				init : function(){
+					var str = A.name +"\n"+ B;
+					C.init(str);
+				}
+			}
+			return d;
+		}, {requires:['mod-a', 'mod-b', 'mod-c']})
+
+		KISSY.use('mod-d', function(S, D){
+			D.init();
+		})
+			
+	</script>
+</body>
+</html>

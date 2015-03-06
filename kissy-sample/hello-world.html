@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World</title>
+	<script src="http://g.alicdn.com/kissy/k/1.4.7/seed.js" data-config="{combine:true}"></script>
+</head>
+<body>
+
+	<button class="continue">Click Me</button>
+
+	<button id="click-me">Click Me For Showing</button>
+	
+	<p id="content" style="display: none;">This is hidden content.</p>
+
+	<script>
+
+		KISSY.ready(function(S){
+			console.log("Hello World!");
+
+
+		})
+
+		KISSY.use('node', function(S, Node){
+			Node.one('button.continue').html('Hello World');
+		})
+
+		KISSY.use('node', function(S, Node){
+			Node.one('#click-me').on("click", function(e){
+				Node.one('#content').show();
+			})
+		})
+
+		KISSY.use('io,node', function(S, io, Node){
+			io({
+				url: 'api/getData',
+				data: {
+					zipcode: 10000
+				},
+				success: function(data){
+					Node.one('#weather-xxx').html(data);
+				}
+			})
+		})
+
+	</script>
+</body>
+</html>

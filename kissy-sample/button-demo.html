@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Button Demo</title>
+	<script src="http://g.alicdn.com/kissy/k/1.4.7/seed.js" data-config="{combine:true}"></script>
+</head>
+<body>
+	
+	<button id="btn1"></button>
+
+	<script>
+		KISSY.use('button', function(S, Button){
+			var btn = new Button({
+				content: '我是button',
+				render: '#btn1',
+				tooltip: 'hover xxx'
+			});
+			btn.render();
+		})
+
+	</script>
+</body>
+</html>

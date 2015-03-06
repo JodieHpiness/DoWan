@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Anim</title>
+	<script src="http://g.alicdn.com/kissy/k/1.4.7/seed.js" data-config="{combine:true}"></script>
+	<style>
+	div {
+		width: 100px;
+		height: 100px;
+		background: red;
+		border: 1px solid #ccc;
+		position: relative;
+	}
+	</style>
+</head>
+<body>
+
+	<div id="div1"></div>
+	
+
+	<script>
+	KISSY.use('anim', function(S, Anim){
+		var div = new Anim('#div1', {
+			'background-color':'#0f0',
+			// 'border-width':'10px',
+			'top':'100px'
+		},
+		// 动画时长,秒
+		5,
+		// 动画特效
+		'ease',
+		// 动画结束的回调
+		function(){
+			console.log("动画结束");
+		}
+		);
+
+		div.run();
+	})
+
+	</script>
+</body>
+</html>
