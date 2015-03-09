@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Scope</title>
+</head>
+<body>
+	
+
+	<button id="button1">button 1</button>
+	<button id="button2">button 2</button>
+	<button id="button3">button 3</button>
+
+	<script>
+		window.onload = function(){
+
+			var btns = document.getElementsByTagName("button");
+
+			for(var i = 0; i < 3; i++){
+				btns[i].addEventListener("click", function(){
+					alert("button ");
+				}, false)
+			}
+		}
+
+	</script>
+</body>
+</html>

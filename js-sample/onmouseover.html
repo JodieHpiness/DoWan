@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ON Mouseover </title>
+	<style>
+		#div1 {
+			width: 50px; height: 50px; background: #c0c0c0; position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+
+
+	<script>
+		document.onmousemove = function(ev){
+			var e = ev || event;
+
+			var div1 = document.getElementById("div1");
+
+			var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+			var scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
+
+			div1.style.left = e.clientX + scrollLeft + "px";
+			div1.style.top = e.clientY + scrollTop  + "px";
+		}
+
+	</script>
+</body>
+</html>
